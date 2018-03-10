@@ -1,27 +1,32 @@
-package week1;
 
-public class MyThread extends Thread{
+import static java.lang.Thread.sleep;
 
-@override
-public void run() {
-System.out.println("running...");
-System.out.println("running...Nurul Basitah");
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+/**
+ *
+ * @author hp
+ */
+class MyThread extends Thread {
+     public void run() {
+         int count= 5;
+        try {
+            for ( int x = 1; x <=20; x++) { 
+               System.out.print(count);
+                sleep(500);
+                count+=5;
+                if(count%2!=0)
+                    System.out.print("A");
+                System.out.println();
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+  
 }
-
-public static void main(String args[]) {
-    MyThread t1 = new MyThread();
-    MyThread t2 = new MyThread();
-    System.out.println("Name of t1:" + t1.getName());
-    System.out.println("Name of t2:" + t2.getName());
-    System.out.println("id of t1:" + t1.getId());
-
-    t1.start();
-    t2.start();
-    
-    System.out.println("running...240450");
-    t1.setName("STIW3054");
-    System.out.println("After changing name of t1:" + t1.getName());
-}
-}
-
